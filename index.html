@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE3</title>
+    <!--VUE3 CDN-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="product-display"></div>
+            <div class="product-container">
+                <div class="product-image">
+                    <img :src="image" alt="product-image">
+                </div>
+                <div clas="product-info">
+                    <h1>{{ product_title + " " + brand}}</h1>
+                    <p v-if="inStock >=10">In Stock</p>
+                    <p v-else-if="inStock < 1 && inStock < 10"> Almout of out</p>
+                    <p v-else>Out of Stock</p>
+                    <ul>
+                        <li v-for="details in details">
+                            {{details}}
+                        </li>
+                    </ul>
+                    <div v-for="variant in variants"
+                    :key="variant.id"
+                    @mouseouver="changeImage(variant.image)"
+                    class="button-name"
+                    :style="{backgroundColor: variant.color}">
+                    </div>
+                    <button
+                    class="button"
+                    :class="{disabledButton: inStock < 1}"
+                    @click="addToCart"
+                    :disabled="inStock < 1">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    const {creatApp, ref } = Vue
+
+    creatApp({
+        setup() {
+            const cart = ref(0)
+            const addToCart = () =>{
+                cart.value +=1
+            }
+            const image = ref ("assets/images/funkoHpmer.png");
+            const changeImage = (variantImage) => {
+                image.value = variantImage
+            }
+                return{
+                    product_title: ref('Funko-Pop'),
+                    brand: 'The Simpsons',
+                    image, 
+                    inStock: ref(9),
+                    details:['Categoria: Desenho Animado', 'The Simpsons', 'Tipo de produto: Pop!'],
+                    variants: [{id:1, name: 'Homer', image:'assets/images/funkoHomer.png'} ,{id:2, name: 'Skeleton Margie', image:'assets/images/funkopopMargeSimpson.png'}, {id: 3, name: 'Maggie Simpson', image: 'assets/images/funkoMaggieSimpson.webp'} , {id:4 , name: 'Bart Simpson' , image: 'assets/images/funkopopBart.jpg'} , { id:5, name: 'Milhouse Fallout Boy', image:'assets/images/funkopopMilhouseFalloutBoy.png'} , {id: 6, name: 'Hugo Simpson' , image: 'assets/images/funkopopHugoSimpson.jpg'} , {id:7, name:'Kearney Zzyzwics', image: 'funkopopKearneyZzyzwics.webp'}, {id:8, name:'Moe Szyslak' , image:'assets/images/funkopopMoeSzylask.jpeg'} , {id:9 , name: 'Sideshow Bob' , image:'assets/images/funkopopSideshowBob.webp'} , {id: 10, name:'Ralph Wiggum', image:'assets/images/funkopopRalphWiggum.webp'}
+                    ],
+                    cart,
+                    addToCart,
+                    changeImage
+                }
+        }
+    }).mounth('#app')
+</script>
