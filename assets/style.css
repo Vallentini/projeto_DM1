@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Modak&family=Oswald:wght@200..700&display=swap");
+
+img {
+  width: 70%;
+  height: 55%;
+  margin: 40px;
+  padding: 15px;
+  -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
+}
+
+.button {
+  margin: 30px;
+  background-color: #307632;
+  border-radius: 2px;
+  font-size: 18px;
+  width: 160px;
+  height: 60px;
+  color: white;
+  padding: 20px;
+  box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17),
+    inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15),
+    inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+  text-align: center;
+  cursor: pointer;
+}
+
+.cart {
+  margin:  100px;
+  float: right;
+  border: 1px solid #000000;
+  border-radius: 5%;
+  padding: 10px 30px;
+  background-color: rgb(191, 191, 186);
+  -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+}
+
+.product-display {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.product-image {
+  width: 20%;
+}
+.product-info {
+  width: 30%;
+  margin-left: 5%;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.product-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 1px solid rgb(235, 224, 224);
+  width: 80%;
+  margin-top: 05%;
+}
