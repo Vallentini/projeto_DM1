@@ -14,7 +14,7 @@ createApp({
                 title: 'Homer',
                 image:'assets/images/funkoHomer.png',
                 description: 'Funko Pop',
-                inStock: 30
+                inStock: 0
 
 
             },
@@ -22,7 +22,7 @@ createApp({
                 title: 'Skeleton Margie',
                 image:'assets/images/funkopopMargeSimpson.webp',
                 description: 'Funko Pop',
-                inStock: 30
+                inStock: 0
             },
             {
                 title: 'Maggie Simpson',
@@ -36,7 +36,7 @@ createApp({
                title: 'Bart Simpson',
                image: 'assets/images/funkopopBart.jpg',
                description: 'Funko Pop',
-               inStock: 30
+               inStock: 2
             },
             {
                  title: 'Milhouse Fallout Boy',
@@ -48,21 +48,44 @@ createApp({
                 title: 'Hugo Simpson',
                 image: 'assets/images/funkopopHugoSinpson.jpg',
                 description: 'Funko Pop',
-                inStock: 30
+                inStock: 3
             },
             {
                 title: 'Sideshow Bob',
                 image:'assets/images/funkopopSideshowBob.webp',
                 description: 'Funko Pop',
-                inStock: 30
+                inStock: 10
             },
             {
                 title:'Ralph Wiggum',
                 image:'assets/images/funkopopRalphWiggum.webp',
                 description: 'Funko Pop',
-                inStock: 30
+                inStock: 0
+            },
+            {
+                title:'Deep Space Homer',
+                image:'assets/images/deepspacehomer.jfif',
+                description: 'Funko Pop',
+                inStock: 0
+            },
+            {
+                title:'Mr. Sparkley',
+                image:'assets/images/mrsparkley.jfif',
+                description: 'Funko Pop',
+                inStock: 0
+            },
+            {
+                title:'Evil Homer',
+                image:'assets/images/evilhomer.jfif',
+                description: 'Funko Pop',
+                inStock: 7
+            },
+            {
+                title:'Lisandra',
+                image:'assets/images/lisandra.jfif',
+                description: 'Funko Pop',
+                inStock: 20
             }
-
 
         ]);
 
