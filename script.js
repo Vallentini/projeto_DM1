@@ -5,92 +5,109 @@ createApp({
     setup() {
         const cart = ref(0);
 
-        const addToCart = () => {
+        const addToCart = (product) => {
             cart.value += 1;
-        };
+            let storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+      
+            const existingItem = storedCart.find((item) => item.id === product.id);
+      
+            if (existingItem) {
+              existingItem.quantity += 1;
+            } else {
+              storedCart.push({
+                id: product.id,
+                title: product.title,
+                description: product.description,
+                image: product.image,
+                quantity: 1,
+              });
+            }
+      
+            localStorage.setItem("cart", JSON.stringify(storedCart));
+          };
 
         const products = ref([
             {
-                title: 'Homer',
+                id: 1,
+                title: 'Pop! Homer',
                 image:'assets/images/funkoHomer.png',
-                description: 'Funko Pop',
                 inStock: 0,
                 price: 'R$150,00'
             },
             {
-                title: 'Skeleton Margie',
+                id: 2,
+                title: 'Pop! Skeleton Margie',
                 image:'assets/images/funkopopMargeSimpson.webp',
-                description: 'Funko Pop',
                 inStock: 0,
                 price: 'R$120,00'
             },
             {
-                title: 'Maggie Simpson',
+                id: 3,
+                title: 'Pop! Maggie Simpson',
                 image: 'assets/images/funkoMaggieSimpson.webp',
-                description: 'Funko Pop',
                 inStock: 30,
                 price: 'R$230,00'
             },
             {
-               title: 'Bart Simpson',
+                id: 4,
+               title: 'Pop! Bart Simpson',
                image: 'assets/images/funkopopBart.jpg',
-               description: 'Funko Pop',
                inStock: 2,
                price: 'R$190,00'
             },
             {
-                 title: 'Milhouse Fallout Boy',
+                id: 5,
+                 title: 'Pop! Milhouse Fallout Boy',
                  image:'assets/images/funkopopMilhouseFalloutBoy.png',
-                 description: 'Funko Pop',
                  inStock: 30,
                  price: 'R$160,00'
             },
             {
-                title: 'Hugo Simpson',
+                id: 6,
+                title: 'Pop! Hugo Simpson',
                 image: 'assets/images/funkopopHugoSinpson.jpg',
-                description: 'Funko Pop',
                 inStock: 3,
                 price: 'R$200,00'
             },
             {
-                title: 'Sideshow Bob',
+                id: 7,
+                title: 'Pop! Sideshow Bob',
                 image:'assets/images/funkopopSideshowBob.webp',
-                description: 'Funko Pop',
                 inStock: 10,
                 price: 'R$190,00'
             },
             {
-                title:'Ralph Wiggum',
+                id: 8,
+                title:'Pop! Ralph Wiggum',
                 image:'assets/images/funkopopRalphWiggum.webp',
-                description: 'Funko Pop',
                 inStock: 0,
                 price: 'R$180,00'
             },
             {
-                title:'Deep Space Homer',
+                id: 9,
+                title:' Pop! Deep Space Homer',
                 image:'assets/images/deepspacehomer.jfif',
-                description: 'Funko Pop',
                 inStock: 0,
                 price: 'R$250,00'
             },
             {
-                title:'Mr. Sparkley',
+                id: 10,
+                title:'Pop! Mr. Sparkley',
                 image:'assets/images/mrsparkley.jfif',
-                description: 'Funko Pop',
                 inStock: 0,
                 price: 'R$150,00'
             },
             {
-                title:'Evil Homer',
+                id: 11,
+                title:'Pop! Evil Homer',
                 image:'assets/images/evilhomer.jfif',
-                description: 'Funko Pop',
                 inStock: 7,
                 price: 'R$170,00'
             },
             {
-                title:'Lisandra',
+                id: 12,
+                title:'Pop! Lisandra',
                 image:'assets/images/lisandra.jfif',
-                description: 'Funko Pop',
                 inStock: 20,
                 price: 'R$50,00'
             }
@@ -103,4 +120,4 @@ createApp({
             addToCart
         };
     }
-}).mount('#container');
+}).mount('#app');
