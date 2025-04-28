@@ -57,7 +57,7 @@ createApp({
             },
             {
                 id: 5,
-                 title: 'Pop! Milhouse Fallout Boy',
+                 title: 'Pop! Milhouse Fallout',
                  image:'assets/images/funkopopMilhouseFalloutBoy.png',
                  inStock: 30,
                  price: 'R$160,00'

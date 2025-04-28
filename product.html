@@ -10,18 +10,18 @@
 <body id="app" style="background-color: #E3E3E3;">
  <!-- NAVBAR -->
  <div class="nav">
-  <a href="index.html" id="a"><h1>Funko Pops!</h1></a>
- </div>
-  <div id="container">    
+  <img src="assets/images/The-Simpsons-28-04-2025 3 (1).png" alt="The Simpsons">
+</div>
+<div id="container">    
     <div v-if="product" class="details-product">
       <img :src="product.image" alt="Produto">
       <div class="details-items">
-      <h1>{{ product.title }}</h1>
-      <p>{{ product.price }}</p>
-      <p v-if="product.inStock >= 10" style="color: green;">In Stock</p>
-      <p v-else-if="product.inStock > 1 && product.inStock < 10" style="color: rgb(255, 191, 0);font-size: 22px;">Almost out of stock</p>
-      <p v-else style="color: red;font-size: 22px;">Out of stock</p>
-      <button 
+      <h1 class="product-name">{{ product.title }}</h1>
+      <p class="product-price">{{ product.price }}</p>
+      <p v-if="product.inStock >= 10"class="inStock">In Stock</p>
+      <p v-else-if="product.inStock > 1 && product.inStock < 10" style="color: rgb(255, 191, 0);font-size: 22px;  font-family: Roboto, sans-serif;font-weight: 400;">Almost out of stock</p>
+   <p v-else style="color: red;font-size: 22px; font-family: Roboto, sans-serif;font-weight: 400;">Out of stock</p>
+<button 
         class="button" 
         :class="{ disabledButton: product.inStock < 1 }"
         @click="addToCart(product)"
@@ -30,11 +30,10 @@
     </div>
   </div>
   </div>
-  <div class="footer">
-    <h4 class="title-footer">POP!</h4>
-    <p class="description-footer">Exclusivo Funko! Simpsons</p>
-    <div class="shop-footer"><p>SHOP</p></div>
+<div class="footer">
+  <img src="assets/images/The-Simpsons-28-04-2025 3 (1).png" alt="The Simpsons">
 </div>
+
 
 
   <script>
@@ -75,7 +74,7 @@
             },
             {
                 id: 5,
-                 title: 'Pop! Milhouse Fallout Boy',
+                 title: 'Pop! Milhouse Fallout',
                  image:'assets/images/funkopopMilhouseFalloutBoy.png',
                  inStock: 30,
                  price: 'R$160,00'

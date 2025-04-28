@@ -10,21 +10,29 @@
 </head>
 <body id="app">
     <div class="nav">
-        <h1>Funko POP!</h1>
+        <img src="assets/images/The-Simpsons-28-04-2025 3 (1).png" alt="The Simpsons">
     </div>
+        <img src="assets/images/image 1.png" alt="banner1" class="banner">
+        <div class="banner-info">
+            <h1 class="title-info">POP!</h1>
+            <p class="description-info">Exclusivo Funko! Simpsons</p>
+            <div class="sobre-info"><p>Sobre</p></div>
+        </div>
+        <img src="assets/images/banner2.png" alt="banner2" class="banner">
 
     <div id="container" >
         <div class="cart">
             <img src="assets/images/shopping_cart_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="icon-cart" class="icon-cart"> 
             {{ cart }}
         </div>
+        <h2>Novos Funkos Para Você!</h2>
         <div class="product-display">
             <div 
                 class="product-container" 
                 v-for="(product, index) in products" 
                 :key="product.id">
+                <img src="assets/images/favorite_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="Favoritar" class="icon-heart">
                 <a :href="'product.html?id=' + product.id" style="text-decoration: none;">
-                    <img src="assets/images/favorite_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="Favoritar" class="icon-heart">
                     <div class="product-image">
                         <img :src="product.image" :alt="product.title">
                     </div>
@@ -32,8 +40,8 @@
                         <h3 class="product-name">{{ product.title }}</h3>
                         <p class="product-price">{{product.price}}</p>
                         <p v-if="product.inStock >= 10"class="inStock">In Stock</p>
-                        <p v-else-if="product.inStock > 1 && product.inStock < 10" style="color: rgb(255, 191, 0);font-size: 22px;font-weight: 200">Almost out of stock</p>
-                     <p v-else style="color: red;font-size: 22px; font-weight: 200;">Out of stock</p>
+                        <p v-else-if="product.inStock > 1 && product.inStock < 10" style="color: rgb(255, 191, 0);font-size: 22px;  font-family: Roboto, sans-serif;font-weight: 400;">Almost out of stock</p>
+                     <p v-else style="color: red;font-size: 22px; font-family: Roboto, sans-serif;font-weight: 400;">Out of stock</p>
                 </a>
                     <button 
                         class="button" 
@@ -45,14 +53,9 @@
             </div>
         </div>
     </div>
-    
-    
     <div class="footer">
-        <h4 class="title-footer">POP!</h4>
-        <p class="description-footer">Exclusivo Funko! Simpsons</p>
-        <div class="shop-footer"><p>SHOP</p></div>
-    </div>
-
+        <img src="assets/images/The-Simpsons-28-04-2025 3 (1).png" alt="The Simpsons">
+      </div>
     <script src="script.js"></script>
 </body>
 </html>
