@@ -3,7 +3,7 @@
 .banner{
   width: 100%;
   margin: 0;
-  height: 500px;
+  height: auto;
   padding: 0;
 }
 
@@ -39,19 +39,34 @@ a{
 }
 
 /* BOTÃO */
+.container-button{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20%;
+
+}
+
 .button {
-  width: 120px;
-  height: 41px;
+  width: 140px;
+  height: 61px;
   background-color: #f0eaea;
   border: none;
   border-radius: 60px;
   padding: 8px 20px;
-  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   margin: auto;
+  font-size: 14px;
+  font-family: "Reboto", sans-serif;
+  font-weight: 800;
+;
+}
+
+button img{
+  width: 20px;
+  height: 20px;
 }
 
 /* NAVEGAÇÃO */
@@ -188,7 +203,7 @@ a{
 /* INFO DO PRODUTO */
 .product-info {
   margin-top: auto;
-  align-items: flex-start;
+  align-items: center;
   }
 
  .product-image {
@@ -197,10 +212,9 @@ a{
   box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
 }
 .product-name{
-  font-size: 25px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 1px;
+  font-weight: 200;
   text-decoration: none;
   color: #1D1C1C;
 }
@@ -226,18 +240,46 @@ a{
   border-radius: 20px;
   gap: 40px;
   margin: auto;
-  margin: 5% 15% 5% 20%;
+  margin: 5% 10% 5% 10%;
   flex-wrap: wrap;
 
 }
 
-.details-product img {
-  width: 40%;
-  height: 500px;
-  border-radius: 10px;
-  border: 1px;
-  border-radius: 20px;
+.details-img {
+  width: 571px;
+  height: 538px;
+  border-radius: 30px;
+  border:  10px rgb(202, 202, 202);
 }
+
+.details-name{
+  width: 90%;
+  font-size: 64px;
+  margin-bottom: 1px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #1D1C1C;
+}
+
+.details-price {
+  width: 20%;
+  font-size: 36px;
+  color: #555;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  margin-bottom: 100px;
+}
+
+.product-quantity{
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 28px;
+color: #010101;
+}
+
+
 
 .details-items{
   position: relative;
@@ -247,25 +289,11 @@ a{
   justify-content: flex-end;
 }
 
-.details-items h1 {
-  width: 90%;
-  font-size: 28px;
-  font-weight: 800;
-  color: #111;
-  text-align: left;
-}
-
-.details-items p {
-  width: 20%;
-  font-size: 18px;
-  margin: 10px 20px ;
-  color: #333;
-}
 
 /* ÍCONE DO CARRINHO */
 .icon-cart {
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
 }
 
 /* RESPONSIVIDADE */
