@@ -10,10 +10,12 @@
   <body id="app" style="background-color: #e3e3e3">
     <!-- NAVBAR -->
     <div class="nav">
-      <img
+      <a href="index.html">
+        <img
         src="assets/images/The-Simpsons-28-04-2025 3 (1).png"
-        alt="The Simpsons"
-      />
+        alt="The Simpsons"/>
+      </a>
+      
     </div>
     <div id="container">
       <div v-if="product" class="details-product">
@@ -21,12 +23,12 @@
         <div class="details-items">
           <h1 class="details-name">{{ product.title }}</h1>
           <p class="details-price">{{ product.price }}</p>
-          <p class="product-quantity">Quntidade</p>
-          <button @click="diminuir" :disabled="quantity <= 1">-</button>
-          <span>{{ quantity }}</span>
-          <button @click="aumentar" :disabled="quantity >= product.inStock">
-            +
-          </button>
+          <div class="quantity-control">
+            <span>Quantidade</span>
+            <button class="quantity-button" @click="diminuir" :disabled="quantity <= 0">−</button>
+            <span class="quantity-value">{{ quantity }}</span>
+            <button class="quantity-button" @click="aumentar" :disabled="quantity >= product.inStock">+</button>
+          </div>          
           <div class="container-button">
             <button
               class="button"
@@ -54,11 +56,12 @@
 
     <script>
       const { createApp, ref } = Vue;
-
+    
       createApp({
         setup() {
           const product = ref(null);
-
+          const quantity = ref(1); // contador começa em 1
+    
           const allProducts = [
             {
               id: 1,
@@ -145,33 +148,34 @@
               price: "R$50,00",
             },
           ];
-
+    
           const getProductById = (id) => {
             return allProducts.find((product) => product.id === id);
           };
-
+    
           const addToCart = (product) => {
             let storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-
+    
             const existingItem = storedCart.find(
               (item) => item.id === product.id
             );
-
+    
             if (existingItem) {
-              existingItem.quantity += 1;
+              existingItem.quantity += quantity.value;
             } else {
               storedCart.push({
                 id: product.id,
                 title: product.title,
                 price: product.price,
                 image: product.image,
+                quantity: quantity.value,
               });
             }
-
+    
             localStorage.setItem("cart", JSON.stringify(storedCart));
             alert("Produto adicionado ao carrinho! ✅");
           };
-
+    
           const loadProduct = () => {
             const urlParams = new URLSearchParams(window.location.search);
             const id = parseInt(urlParams.get("id"));
@@ -179,18 +183,30 @@
               product.value = getProductById(id);
             }
           };
-
+    
+          const aumentar = () => {
+            if (product.value && quantity.value < product.value.inStock) {
+              quantity.value++;
+            }
+          };
+    
+          const diminuir = () => {
+            if (quantity.value > 1) {
+              quantity.value--;
+            }
+          };
+    
           loadProduct();
-
+    
           return {
             product,
-            addToCart,
             quantity,
             aumentar,
             diminuir,
+            addToCart,
           };
         },
       }).mount("#app");
     </script>
-  </body>
+      </body>
 </html>
