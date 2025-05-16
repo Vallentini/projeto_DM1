@@ -7,6 +7,7 @@
     <!--VUE3 CDN-->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body id="app">
     <div class="nav">
@@ -58,4 +59,16 @@
       </div>
     <script src="script.js"></script>
 </body>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(function () {
+          console.log('service worker registered');
+        })
+        .catch(function () {
+          console.warn('service worker failed');
+        });
+    }
+  </script>
 </html>
+

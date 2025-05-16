@@ -1,0 +1,15 @@
+{
+    "name": "The Simpsona",
+    "short_name": "The Simpsona",
+    "theme_color": "#FFE448",
+    "background_color": "#FFE448",
+    "display": "standalone",
+    "start_url": "/",
+    "icons": [
+      {
+        "src": "asstes/image/icon.png",
+        "sizes": "72x72",
+        "type": "image/png"
+      }
+    ]
+  }
